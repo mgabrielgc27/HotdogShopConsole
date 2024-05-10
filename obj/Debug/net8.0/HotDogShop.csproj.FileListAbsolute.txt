@@ -1,0 +1,14 @@
+C:\dev\HotDogShop\bin\Debug\net8.0\HotDogShop.exe
+C:\dev\HotDogShop\bin\Debug\net8.0\HotDogShop.deps.json
+C:\dev\HotDogShop\bin\Debug\net8.0\HotDogShop.runtimeconfig.json
+C:\dev\HotDogShop\bin\Debug\net8.0\HotDogShop.dll
+C:\dev\HotDogShop\bin\Debug\net8.0\HotDogShop.pdb
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.GeneratedMSBuildEditorConfig.editorconfig
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.AssemblyInfoInputs.cache
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.AssemblyInfo.cs
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.csproj.CoreCompileInputs.cache
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.dll
+C:\dev\HotDogShop\obj\Debug\net8.0\refint\HotDogShop.dll
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.pdb
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.genruntimeconfig.cache
+C:\dev\HotDogShop\obj\Debug\net8.0\ref\HotDogShop.dll
