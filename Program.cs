@@ -1,9 +1,9 @@
-﻿namespace HotdogShop;
+﻿// namespace HotdogShop;
 
-class Program{
+// class Program{
 
-    public static void Main(){
+//     public static void Main(){
 
-        new Menu();
-    }
-}
+//         new Menu();
+//     }
+// }

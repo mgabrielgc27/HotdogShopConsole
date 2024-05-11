@@ -1,15 +1,24 @@
 namespace HotdogShop;
 
-public class Venda(Aluno aluno)
+public class Venda
 {
-    public Aluno Aluno { get; set; } = aluno;
+    // Atributos
+    private Cliente cliente;
 
+    // Prop
+    public Cliente Cliente { get { return cliente; } }
+
+    // Ctor
+    public Venda(Cliente cliente)
+    {
+        this.cliente = cliente;
+    }
     public override string ToString()
     {   
-        string resp = $"{Aluno}";
-        for (int i = 0; i < Aluno.Hotdogs.Count; i++)
+        string resp = $"{Cliente}";
+        for (int i = 0; i < Cliente.Hotdogs.Count; i++)
         {
-            resp += $"\n{Aluno.Hotdogs[i]}";
+            resp += $"\n{Cliente.Hotdogs[i]}";
         }
 
         return resp;
