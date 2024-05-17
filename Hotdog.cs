@@ -1,19 +1,26 @@
 namespace HotdogShop;
 
-public class Hotdog(EProteina proteina, EQueijo queijo, List<EAdicionais> adicionais, EBebida bebidas)
+public class Hotdog
 {
-    // private EProteina proteina = proteina;
-    // private EQueijo queijo = queijo;
-    // private List<EAdicionais> ? adicionais = adicionais;
-    // private EBebida bebidas = bebidas;
+    public float preço;
+    private EQueijo queijo;
+    private List<EAdicionais> ? adicionais;
+    private EBebida bebida;
 
-    public EProteina Proteina { get; } = proteina;
-    public EQueijo Queijo { get; } = queijo;
-    public List<EAdicionais> Adicionais { get; } = adicionais;
-    public EBebida Bebidas { get; } = bebidas;
+    public float Preço { get { return preço; } set{ preço = value; } }
+    public EQueijo Queijo { get { return queijo; } set{ queijo = value; } }
+    public List<EAdicionais>? Adicionais { get { return adicionais; } set{ adicionais = value; } }
+    public EBebida Bebida { get { return bebida; } set{ bebida = value; } }
 
-    public override string ToString()
+    public Hotdog(EQueijo queijo, List<EAdicionais> ? adicionais, EBebida bebidas)
     {
-        return $"Cachorro-quente com {Proteina}, queijo {Queijo}, {Adicionais} e {Bebidas}";
+        this.queijo = queijo;
+        this.adicionais = adicionais;
+        this.bebida = bebidas;
+    }
+
+    public Hotdog()
+    {
+        adicionais = new List<EAdicionais>();
     }
 }

@@ -9,9 +9,9 @@ public class Cliente
     private List<Hotdog> hotdogs;
 
     // Propriedades
-    public int Identificador { get { return identificador; } }
-    public string ? Name { get { return name; } }
-    public ECliente Tipo { get { return tipo; } }
+    public int Identificador { get { return identificador; } set { identificador = value; } }
+    public string ? Name { get { return name; } set { name = value; } }
+    public ECliente Tipo { get { return tipo; } set { tipo = value; } }
 
     public List<Hotdog> Hotdogs
     { 
@@ -32,6 +32,10 @@ public class Cliente
         this.tipo = tipo;
         this.name = name;
         hotdogs = [];
+    }
+
+    public Cliente(){
+        hotdogs = new List<Hotdog>();
     }
 
 }

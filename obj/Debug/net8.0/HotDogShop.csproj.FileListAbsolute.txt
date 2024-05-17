@@ -12,3 +12,4 @@ C:\dev\HotDogShop\obj\Debug\net8.0\refint\HotDogShop.dll
 C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.pdb
 C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.genruntimeconfig.cache
 C:\dev\HotDogShop\obj\Debug\net8.0\ref\HotDogShop.dll
+C:\dev\HotDogShop\obj\Debug\net8.0\HotDogShop.sourcelink.json
