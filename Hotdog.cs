@@ -2,7 +2,7 @@ namespace HotdogShop;
 
 public class Hotdog
 {
-    public float preço;
+    private float preço;
     private EQueijo queijo;
     private List<EAdicionais> ? adicionais;
     private EBebida bebida;

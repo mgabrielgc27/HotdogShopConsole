@@ -10,7 +10,7 @@ public class Linguiça : Hotdog
 
     public Linguiça()
     {
-        
+        Preço = 3;
     }
 
     public override string ToString()

@@ -9,18 +9,18 @@ public class Menu
 
     private void MenuInterface()
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("[1] Fazer venda");
         Console.WriteLine("[2] Historico de vendas");
         Console.WriteLine("[3] Sair");
-        Console.WriteLine("Quantos cachorros-quentes foram vendidos no total");
-        Console.WriteLine("Quantidade de cachorros-quente vendidos para alunos: ");
-        Console.WriteLine("Quantidade de cachorros-quente vendidos para professores: ");
-        Console.WriteLine("Quantidade de cachorros-quente vendidos para servidores: ");
-        Console.WriteLine("Tipo de cachorro-quente mais vendido: ");
-        Console.WriteLine("Tipo de bebida mais vendida: ");
-        Console.WriteLine("Valor total arrecadado com as vendas: ");
-        Console.WriteLine("Valor total de descontos: ");
+        Console.WriteLine($"Quantos cachorros-quentes foram vendidos no total: {Computabilidade.TotalVendido(vendas)}");
+        Console.WriteLine($"Quantidade de cachorros-quente vendidos para alunos: {Computabilidade.TotalVendidoAlunos(vendas)}");
+        Console.WriteLine($"Quantidade de cachorros-quente vendidos para professores: {Computabilidade.TotalVendidoProfessores(vendas)}");
+        Console.WriteLine($"Quantidade de cachorros-quente vendidos para servidores: {Computabilidade.TotalVendidoServidores(vendas)}");
+        Console.WriteLine($"Tipo de cachorro-quente mais vendido: {Computabilidade.CachorroQuenteMaisVendido(vendas)}");
+        Console.WriteLine($"Tipo de bebida mais vendida: {Computabilidade.BedidaMaisVendida(vendas)}");
+        Console.WriteLine($"Valor total arrecadado com as vendas: {Computabilidade.ValorArrecadado(vendas)}");
+        Console.WriteLine($"Valor total de descontos: {Computabilidade.TotalDescontos(vendas)}");
         
         int option = int.Parse(Console.ReadLine());
         switch (option)
@@ -45,7 +45,7 @@ public class Menu
     {   
         Cliente c = CadastraCliente();
 
-        Console.Clear();
+        //Console.Clear();
         Console.Write("Quantos cachorros-quentes você deseja? ");
         int quant = int.Parse(Console.ReadLine());
         if(quant == 0)
@@ -114,7 +114,7 @@ public class Menu
 
     private Cliente CadastraCliente()
     {
-        Console.Clear();
+        //Console.Clear();
         Cliente c = new Cliente();
 
         Console.WriteLine("[1] Aluno [2] Professor [3] Servidor");
@@ -143,7 +143,7 @@ public class Menu
 
     private void ImprimirVendas()
     {   
-        Console.Clear();
+        //Console.Clear();
         foreach (var v in vendas)
         {
             ImprimirVenda(v);

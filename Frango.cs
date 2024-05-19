@@ -10,7 +10,7 @@ public class Frango : Hotdog
 
     public Frango()
     {
-        
+        Preço = 2.5f;
     }
 
     public override string ToString()
