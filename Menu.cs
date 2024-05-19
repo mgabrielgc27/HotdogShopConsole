@@ -4,171 +4,167 @@ public class Menu
     List<Venda> vendas = new List<Venda>();
     public Menu()
     {
-
-        MenuInterface(vendas);
+        MenuInterface();
     }
 
-    private void MenuInterface(List<Venda> vendas)
+    private void MenuInterface()
     {
-        Console.Clear();
-        Console.WriteLine("[1] Cadastrar cliente");
+        //Console.Clear();
+        Console.WriteLine("[1] Fazer venda");
         Console.WriteLine("[2] Historico de vendas");
         Console.WriteLine("[3] Sair");
-
+        Console.WriteLine($"Quantos cachorros-quentes foram vendidos no total: {Computabilidade.TotalVendido(vendas)}");
+        Console.WriteLine($"Quantidade de cachorros-quente vendidos para alunos: {Computabilidade.TotalVendidoAlunos(vendas)}");
+        Console.WriteLine($"Quantidade de cachorros-quente vendidos para professores: {Computabilidade.TotalVendidoProfessores(vendas)}");
+        Console.WriteLine($"Quantidade de cachorros-quente vendidos para servidores: {Computabilidade.TotalVendidoServidores(vendas)}");
+        Console.WriteLine($"Tipo de cachorro-quente mais vendido: {Computabilidade.CachorroQuenteMaisVendido(vendas)}");
+        Console.WriteLine($"Tipo de bebida mais vendida: {Computabilidade.BedidaMaisVendida(vendas)}");
+        Console.WriteLine($"Valor total arrecadado com as vendas: {Computabilidade.ValorArrecadado(vendas)}");
+        Console.WriteLine($"Valor total de descontos: {Computabilidade.TotalDescontos(vendas)}");
+        
         int option = int.Parse(Console.ReadLine());
         switch (option)
         {
             case 1:
-                CadastrarCliente();
+                FazerVenda();
                 break;
             case 2:
-                ImprimirVendas(vendas);
+                ImprimirVendas();
                 break;
             case 3:
                 Console.Clear();
                 Console.WriteLine("Aplicação encerrada.");
                 return;
             default:
-                MenuInterface(vendas);
+                MenuInterface();
                 break;
         }
     }
 
-    private void CadastrarCliente()
-    {
-        string? name = "";
-        string? id = "";
-        string? entrada;
+    private void FazerVenda()
+    {   
+        Cliente c = CadastraCliente();
 
-        Console.Clear();
-        Console.Write("Nome: ");
-        entrada = Console.ReadLine();
-        if (!String.IsNullOrEmpty(entrada))
-            name = entrada;
-        else
+        //Console.Clear();
+        Console.Write("Quantos cachorros-quentes você deseja? ");
+        int quant = int.Parse(Console.ReadLine());
+        if(quant == 0)
+            FazerVenda();
+        
+        for (int i = 0; i < quant; i++)
         {
-            Console.Clear();
-            Console.WriteLine("Nome inválido");
-            CadastrarCliente();
-        }
-
-        Console.Clear();
-        Console.Write("Id: ");
-        entrada = Console.ReadLine();
-        if (!String.IsNullOrEmpty(entrada))
-            id = entrada;
-        else
-        {
-            Console.Clear();
-            Console.WriteLine("Id inválido");
-            CadastrarCliente();
-        }
-
-        FazerPedido(new Venda(new Aluno(name, id)));
-    }
-
-    private void FazerPedido(Venda venda)
-    {
-        Console.Clear();
-        Console.WriteLine("Quantos cachorros-quentes você deseja?");
-        int quantidade = int.Parse(Console.ReadLine());
-
-        if (quantidade > 0)
-        {
-            for (int i = 0; i < quantidade; i++)
+            Hotdog h = new Hotdog();
+            Console.WriteLine("[1] Salcicha [2] Linguiça [3] Frango [4] Bacon");
+            int prot = int.Parse(Console.ReadLine());
+            switch (prot)
             {
-                EProteina proteina = new EProteina();
-                EQueijo queijo = new EQueijo();
-                List<EAdicionais> adicionais = new List<EAdicionais>();
-                EBebida bebida = new EBebida();
-                int entrada;
-
-                Console.Clear();
-                Console.Write("[1] salsicha [2] linguiça [3] frango [4] bacon");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada > 0 && entrada < 5)
-                    proteina = (EProteina)entrada;
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Opção invalida");
-                    FazerPedido(venda);
-                }
-
-                Console.Clear();
-                Console.Write("[1] mussarela [2] prato [3] parmesão [4] coalho");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada > 0 && entrada < 5)
-                    queijo = (EQueijo)entrada;
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Opção invalida");
-                    FazerPedido(venda);
-                }
-
-                Console.Clear();
-                Console.Write("Deseja ketchup? [1] Sim [2] Não");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada == 1)
-                    adicionais.Add(EAdicionais.KETCHUP);
-
-                Console.Clear();
-                Console.Write("Deseja maionese ?[1] Sim [2] Não");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada == 1)
-                    adicionais.Add(EAdicionais.MAIONESE);
-
-                Console.Clear();
-                Console.Write("Deseja ovo? [1] Sim [2] Não");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada == 1)
-                    adicionais.Add(EAdicionais.OVO);
-
-                Console.Clear();
-                Console.Write("Deseja batata? [1] Sim [2] Não");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada == 1)
-                    adicionais.Add(EAdicionais.BATATA_FRITA);
-
-                Console.Clear();
-                Console.Write("[1] Coca-cola [2] DelRio [3] Suco do Chaves");
-                entrada = int.Parse(Console.ReadLine());
-                if (entrada > 0 && entrada < 4)
-                    bebida = (EBebida)entrada;
-                else
-                {
-                    Console.Clear();
-                    Console.WriteLine("Opção invalida");
-                    FazerPedido(venda);
-                }
-
-                venda.Aluno.Hotdogs.Add(new Hotdog(proteina, queijo, adicionais, bebida));
-
+                case 1:
+                        h = new Salcicha();
+                    break; 
+                case 2:
+                        h = new Linguiça();
+                    break;
+                case 3:
+                        h = new Frango();
+                    break;
+                case 4:
+                        h = new Bacon();
+                    break;
+                default:
+                        FazerVenda();
+                    break;
             }
 
-            vendas.Add(venda);
-        }
-        else
-        {
-            Console.Clear();
-            Console.WriteLine("Quantidade invalida");
-            FazerPedido(venda);
+            Console.WriteLine("[1] Mussarela [2] Prato [3] Parmesão [4] Coalho");
+            h.Queijo = (EQueijo)int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Ketchup? [S] SIM [N] NÃO");
+            if(Console.ReadLine().ToUpper() == "S")
+            {
+                h.Adicionais.Add(EAdicionais.KETCHUP);
+            }
+
+            Console.WriteLine("Maionese? [S] SIM [N] NÃO");
+            if(Console.ReadLine().ToUpper() == "S")
+            {
+                h.Adicionais.Add(EAdicionais.MAIONESE);
+            }
+
+            Console.WriteLine("Ovo? [S] SIM [N] NÃO");
+            if(Console.ReadLine().ToUpper() == "S")
+            {
+                h.Adicionais.Add(EAdicionais.OVO);
+            }
+
+            Console.WriteLine("Batata-frita? [S] SIM [N] NÃO");
+            if(Console.ReadLine().ToUpper() == "S")
+            {
+                h.Adicionais.Add(EAdicionais.BATATA_FRITA);
+            }
+
+            Console.WriteLine("[1] Coca-cola [2] DelRio [3] Suco do chaves");
+            h.Bebida = (EBebida)int.Parse(Console.ReadLine());
+
+            c.Hotdogs.Add(h);
         }
 
-        Console.WriteLine("Venda realizada");
-        Console.ReadKey();
-        MenuInterface(vendas);
+        vendas.Add(new Venda(c));
+        MenuInterface();
     }
 
-    private void ImprimirVendas(List<Venda> vendas)
+    private Cliente CadastraCliente()
     {
-        Console.Clear();
+        //Console.Clear();
+        Cliente c = new Cliente();
+
+        Console.WriteLine("[1] Aluno [2] Professor [3] Servidor");
+        int i = int.Parse(Console.ReadLine());
+        if(i == 1 || i == 2 || i == 3)
+            c.Tipo = (ECliente)i;
+        else
+            CadastraCliente();
+        
+        Console.Write("Nome:");
+        string s = Console.ReadLine();
+        if(!String.IsNullOrEmpty(s))
+            c.Name = s;
+        else
+            CadastraCliente();
+        
+        Console.Write("Identificador: ");
+        i = int.Parse(Console.ReadLine());
+        if(i != 0)
+            c.Identificador = i;
+        else
+            CadastraCliente();
+
+        return c;
+    }
+
+    private void ImprimirVendas()
+    {   
+        //Console.Clear();
         foreach (var v in vendas)
         {
-            Console.WriteLine(v);
+            ImprimirVenda(v);
         }
         Console.ReadKey();
-        MenuInterface(vendas);
+        MenuInterface();
     }
+
+    private void ImprimirVenda(Venda v)
+    {
+        Console.WriteLine($"{v.Cliente.Tipo}: {v.Cliente.Name} - Identificador: {v.Cliente.Identificador}");
+        foreach(var c in v.Cliente.Hotdogs)
+        {
+            Console.WriteLine($"Cachorro-quente: {c}");
+            Console.Write("Ingredientes: ");
+            foreach (var a in c.Adicionais)
+            {
+                Console.Write($"{a} ");    
+            }
+            Console.WriteLine($"\nBebida: {c.Bebida}");
+        }
+    }
+
 }
